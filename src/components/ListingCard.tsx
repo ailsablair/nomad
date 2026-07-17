@@ -47,6 +47,12 @@ export const ListingCard: React.FC<ListingCardProps> = ({ listing }) => {
             <span>AI Real-time</span>
           </span>
         )}
+
+        {/* Country Badge */}
+        <span className="absolute bottom-3 right-3 rounded-lg bg-white/95 px-2 py-0.5 text-[11px] font-bold text-zinc-800 backdrop-blur-sm flex items-center gap-1 shadow-sm border border-zinc-150">
+          <span>{listing.country === 'CA' ? '🇨🇦' : '🇺🇸'}</span>
+          <span>{listing.country === 'CA' ? 'Canada' : 'USA'}</span>
+        </span>
       </div>
 
       {/* Content */}

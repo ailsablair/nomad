@@ -15,7 +15,8 @@ const initialFilters: FilterState = {
   bathroomType: 'any',
   bathroomsCount: 'any',
   petFriendly: 'any',
-  accommodationTypes: []
+  accommodationTypes: [],
+  includeUS: false
 };
 
 export default function App() {
@@ -28,6 +29,9 @@ export default function App() {
 
   // Filter listings based on user selected filter states
   const filteredListings = UNCONVENTIONAL_LISTINGS.filter((listing) => {
+    // 0. Country Filter (Canada by default)
+    if (!filters.includeUS && listing.country !== 'CA') return false;
+
     // 1. Max price filter
     if (listing.price > filters.maxPrice) return false;
 

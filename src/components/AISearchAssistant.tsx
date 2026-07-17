@@ -19,10 +19,10 @@ export const AISearchAssistant: React.FC = () => {
   const [searched, setSearched] = useState(false);
 
   const sampleQueries = [
-    { text: 'Cabins in Cascades under $1500', tool: 'search' as const },
-    { text: 'Houseboats for monthly rent in BC lakes', tool: 'search' as const },
-    { text: 'Unique tiny homes outside Seattle near forests', tool: 'maps' as const },
-    { text: 'Decommissioned lookouts or towers in Pacific Northwest', tool: 'search' as const }
+    { text: 'Cabins in Kootenay BC under $1500', tool: 'search' as const },
+    { text: 'Houseboats for monthly rent in Okanagan lakes', tool: 'search' as const },
+    { text: 'Unique tiny homes outside Calgary near forests', tool: 'maps' as const },
+    { text: 'Decommissioned lookouts or towers in British Columbia', tool: 'search' as const }
   ];
 
   const handleSearch = async (searchQuery: string, searchTool: 'search' | 'maps') => {
@@ -125,7 +125,7 @@ export const AISearchAssistant: React.FC = () => {
             placeholder={
               tool === 'search'
                 ? 'Search Google for: "houseboats on Okanagan Lake under $1800"'
-                : 'Search Maps for: "Tiny homes or cabins near Snoqualmie Washington"'
+                : 'Search Maps for: "Tiny homes or cabins near Nelson British Columbia"'
             }
             className="w-full bg-transparent py-4 px-3 text-sm text-zinc-800 outline-none placeholder-zinc-400"
           />

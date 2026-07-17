@@ -15,7 +15,8 @@ export const UNCONVENTIONAL_LISTINGS: Listing[] = [
     petFriendly: true,
     photoUrl: 'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=800&q=80',
     sourceUrl: 'https://www.hipcamp.com',
-    sourceName: 'Hipcamp'
+    sourceName: 'Hipcamp',
+    country: 'CA'
   },
   {
     id: 'lst_2',
@@ -31,7 +32,8 @@ export const UNCONVENTIONAL_LISTINGS: Listing[] = [
     petFriendly: false,
     photoUrl: 'https://images.unsplash.com/photo-1510312305653-8ed496efae75?auto=format&fit=crop&w=800&q=80',
     sourceUrl: 'https://www.caretaker.org',
-    sourceName: 'Caretaker Gazette'
+    sourceName: 'Caretaker Gazette',
+    country: 'US'
   },
   {
     id: 'lst_3',
@@ -47,7 +49,8 @@ export const UNCONVENTIONAL_LISTINGS: Listing[] = [
     petFriendly: true,
     photoUrl: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80',
     sourceUrl: 'https://sabbaticalhomes.com',
-    sourceName: 'SabbaticalHomes'
+    sourceName: 'SabbaticalHomes',
+    country: 'US'
   },
   {
     id: 'lst_4',
@@ -63,7 +66,8 @@ export const UNCONVENTIONAL_LISTINGS: Listing[] = [
     petFriendly: true,
     photoUrl: 'https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=800&q=80',
     sourceUrl: 'https://www.glampinghub.com',
-    sourceName: 'GlampingHub'
+    sourceName: 'GlampingHub',
+    country: 'US'
   },
   {
     id: 'lst_5',
@@ -79,7 +83,8 @@ export const UNCONVENTIONAL_LISTINGS: Listing[] = [
     petFriendly: true,
     photoUrl: 'https://images.unsplash.com/photo-1525113990974-3f45d87244bb?auto=format&fit=crop&w=800&q=80',
     sourceUrl: 'https://tinyhouselistings.com',
-    sourceName: 'Tiny House Listings'
+    sourceName: 'Tiny House Listings',
+    country: 'CA'
   },
   {
     id: 'lst_6',
@@ -95,7 +100,8 @@ export const UNCONVENTIONAL_LISTINGS: Listing[] = [
     petFriendly: true,
     photoUrl: 'https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?auto=format&fit=crop&w=800&q=80',
     sourceUrl: 'https://rvshare.com',
-    sourceName: 'RVshare'
+    sourceName: 'RVshare',
+    country: 'CA'
   },
   {
     id: 'lst_7',
@@ -111,7 +117,8 @@ export const UNCONVENTIONAL_LISTINGS: Listing[] = [
     petFriendly: false,
     photoUrl: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80',
     sourceUrl: 'https://www.hipcamp.com',
-    sourceName: 'Hipcamp'
+    sourceName: 'Hipcamp',
+    country: 'CA'
   },
   {
     id: 'lst_8',
@@ -127,7 +134,8 @@ export const UNCONVENTIONAL_LISTINGS: Listing[] = [
     petFriendly: true,
     photoUrl: 'https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=800&q=80',
     sourceUrl: 'https://www.canopyandstars.co.uk',
-    sourceName: 'Canopy & Stars'
+    sourceName: 'Canopy & Stars',
+    country: 'US'
   }
 ];
 

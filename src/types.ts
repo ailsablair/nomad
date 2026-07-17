@@ -13,6 +13,7 @@ export interface Listing {
   photoUrl: string;
   sourceUrl: string;
   sourceName: string;
+  country: 'CA' | 'US';
   isAI?: boolean;
   groundingUrls?: string[];
 }
@@ -37,4 +38,5 @@ export interface FilterState {
   bathroomsCount: number | 'any';
   petFriendly: boolean | 'any';
   accommodationTypes: string[]; // List of types selected, or empty for all
+  includeUS: boolean;
 }

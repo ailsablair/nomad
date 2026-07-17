@@ -45,6 +45,45 @@ export const Filters: React.FC<FiltersProps> = ({ filters, onChange, onReset }) 
       </div>
 
       <div className="space-y-6">
+        {/* Target Region */}
+        <div className="border-b border-zinc-150 pb-5">
+          <label className="mb-2.5 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-zinc-500">
+            <span>🌐</span>
+            <span>Target Region</span>
+          </label>
+          <div className="space-y-2.5">
+            <label className="flex items-center gap-2.5 text-xs text-zinc-800 cursor-pointer">
+              <input
+                type="radio"
+                name="region"
+                checked={!filters.includeUS}
+                onChange={() => onChange({ ...filters, includeUS: false })}
+                className="h-4.5 w-4.5 border-zinc-300 text-emerald-600 focus:ring-emerald-500 accent-emerald-600"
+              />
+              <span className="font-semibold">Canada Only 🇨🇦</span>
+            </label>
+            <label className="flex items-center gap-2.5 text-xs text-zinc-800 cursor-pointer">
+              <input
+                type="radio"
+                name="region"
+                checked={filters.includeUS}
+                onChange={() => onChange({ ...filters, includeUS: true })}
+                className="h-4.5 w-4.5 border-zinc-300 text-emerald-600 focus:ring-emerald-500 accent-emerald-600"
+              />
+              <span className="font-semibold">Include United States 🇺🇸</span>
+            </label>
+            {!filters.includeUS ? (
+              <p className="mt-1.5 rounded-lg bg-emerald-50/50 border border-emerald-100 p-2 text-[10px] leading-relaxed text-emerald-800 font-medium">
+                ✅ Showing only Canadian listings that do not require an international visa.
+              </p>
+            ) : (
+              <p className="mt-1.5 rounded-lg bg-amber-50 border border-amber-100 p-2 text-[10px] leading-relaxed text-amber-800 font-medium">
+                ⚠️ Note: US stays require a valid US visa or work permit for Canadian residents.
+              </p>
+            )}
+          </div>
+        </div>
+
         {/* Date Available */}
         <div>
           <label className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-zinc-500">

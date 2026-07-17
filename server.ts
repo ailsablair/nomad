@@ -51,7 +51,7 @@ app.post("/api/search", async (req, res) => {
       // Google Maps Grounding
       // Cannot set responseMimeType or responseSchema when using googleMaps
       const systemInstruction = 
-        "You are an assistant finding unconventional short-term monthly rentals (cabins, tiny homes, houseboats, trailers, lookouts) outside major cities. " +
+        "You are an assistant finding unconventional short-term monthly rentals (cabins, tiny homes, houseboats, trailers, lookouts) outside major cities in Canada (prioritize Canadian options like BC, AB, ON, QC, etc., unless user specifically asks for US options). " +
         "Perform a thorough search on Google Maps for unique listings or rental companies in remote or rural regions. " +
         "Provide a helpful markdown description of what you find, including names, locations, general prices, and details. " +
         "Always highlight why these listings are advantageous for applicants looking for rural stays.";
@@ -93,9 +93,10 @@ app.post("/api/search", async (req, res) => {
       // Google Search Grounding with structured JSON output schema
       const systemInstruction = 
         "You are an expert finder of unconventional monthly short-term rentals (cabins, tiny homes, houseboats, trailers, lookouts, lighthouses) in remote or rural locations. " +
-        "Use Google Search to find real, active, or historical listings outside major cities (especially outside high-cost areas like Vancouver, Victoria, Seattle, etc.). " +
+        "Use Google Search to find real, active, or historical listings outside major cities. Prioritize Canadian options (British Columbia, Alberta, Ontario, Quebec, etc.) by default. " +
+        "You can find United States listings only if the user specifically requests USA or American options. " +
         "Return a structured JSON list of at least 3-5 real listings you found. For each listing, estimate the price, specify its location, bedrooms, bathrooms, " +
-        "whether it is pet friendly (boolean), type of accommodation, a nice description, and provide a real outbound source name and link you found.";
+        "whether it is pet friendly (boolean), type of accommodation, a nice description, the country ('CA' or 'US'), and provide a real outbound source name and link you found.";
 
       const responseSchema = {
         type: Type.ARRAY,
@@ -113,7 +114,8 @@ app.post("/api/search", async (req, res) => {
             "bathroomType",
             "petFriendly",
             "sourceName",
-            "sourceUrl"
+            "sourceUrl",
+            "country"
           ],
           properties: {
             title: { type: Type.STRING, description: "Name/title of the listing" },
@@ -122,8 +124,8 @@ app.post("/api/search", async (req, res) => {
               type: Type.STRING, 
               description: "Must be one of: 'house_boat', 'cabin', 'tiny_home', 'fire_watch_tower', 'lighthouse', 'trailer', 'other'"
             },
-            location: { type: Type.STRING, description: "Location name with state/province, e.g. Snoqualmie Valley, WA" },
-            price: { type: Type.NUMBER, description: "Estimated monthly rent in USD or CAD" },
+            location: { type: Type.STRING, description: "Location name with state/province/country, e.g. Harrison River, BC" },
+            price: { type: Type.NUMBER, description: "Estimated monthly rent in local currency" },
             bedrooms: { type: Type.NUMBER, description: "Number of bedrooms" },
             bathrooms: { type: Type.NUMBER, description: "Number of bathrooms" },
             bathroomType: { 
@@ -132,7 +134,8 @@ app.post("/api/search", async (req, res) => {
             },
             petFriendly: { type: Type.BOOLEAN, description: "Whether pets are permitted" },
             sourceName: { type: Type.STRING, description: "Name of the website/source" },
-            sourceUrl: { type: Type.STRING, description: "Real outbound URL to the original listing or site" }
+            sourceUrl: { type: Type.STRING, description: "Real outbound URL to the original listing or site" },
+            country: { type: Type.STRING, description: "Must be 'CA' or 'US'" }
           }
         }
       };
