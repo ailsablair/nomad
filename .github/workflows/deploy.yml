@@ -25,14 +25,14 @@ jobs:
       - name: Build Application
         run: npm run build
 
-      - name: Sync Files via SFTP to IONOS
+      - name: Sync Files via FTPS to IONOS
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.IONOS_SFTP_SERVER }}
           username: ${{ secrets.IONOS_SFTP_USERNAME }}
           password: ${{ secrets.IONOS_SFTP_PASSWORD }}
-          protocol: ftps           # 👈 CHANGE THIS TO ftps
-          port: 21                 # 👈 CHANGE PORT TO 21 (Standard for FTPS)
+          protocol: ftps
+          port: 21
           local-dir: ./dist/
           server-dir: /subdomains/apps/nomad/
           dangerous-clean-slate: false
