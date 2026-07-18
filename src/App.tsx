@@ -23,6 +23,7 @@ export default function App() {
   const [activeTab, setActiveTab] = useState<'curated' | 'ai_search' | 'directories'>('curated');
   const [filters, setFilters] = useState<FilterState>(initialFilters);
   const [currency, setCurrency] = useState<'CAD' | 'USD'>('CAD');
+  const [isFiltersExpanded, setIsFiltersExpanded] = useState(true);
 
   const CONVERSION_RATE = 1.35; // 1 USD = 1.35 CAD
   const getDisplayPrice = (listing: Listing, displayCurrency: 'CAD' | 'USD') => {
@@ -135,24 +136,35 @@ export default function App() {
         {activeTab === 'curated' && (
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-4">
             {/* Filters Sidebar */}
-            <div className="lg:col-span-1">
-              <Filters
-                filters={filters}
-                onChange={setFilters}
-                onReset={handleResetFilters}
-              />
-            </div>
+            {isFiltersExpanded && (
+              <div className="lg:col-span-1">
+                <Filters
+                  filters={filters}
+                  onChange={setFilters}
+                  onReset={handleResetFilters}
+                />
+              </div>
+            )}
 
             {/* Listings Grid */}
-            <div className="lg:col-span-3">
+            <div className={isFiltersExpanded ? "lg:col-span-3" : "lg:col-span-4"}>
               <div className="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                <div>
-                  <h2 className="text-sm font-bold text-zinc-500 uppercase tracking-wider">
-                    Seeded Curated Database
-                  </h2>
-                  <p className="text-zinc-900 font-bold text-xl mt-1">
-                    {filteredListings.length} Unconventional Stays Available
-                  </p>
+                <div className="flex items-center gap-4">
+                  <button
+                    onClick={() => setIsFiltersExpanded(!isFiltersExpanded)}
+                    className="flex items-center gap-2 rounded-xl border border-zinc-200 bg-white px-3 py-2 text-xs font-semibold text-zinc-900 hover:bg-zinc-50 shadow-sm"
+                  >
+                    <SlidersHorizontal className="h-4 w-4" />
+                    {isFiltersExpanded ? 'Hide Filters' : 'Show Filters'}
+                  </button>
+                  <div>
+                    <h2 className="text-sm font-bold text-zinc-500 uppercase tracking-wider">
+                      Seeded Curated Database
+                    </h2>
+                    <p className="text-zinc-900 font-bold text-xl mt-1">
+                      {filteredListings.length} Unconventional Stays Available
+                    </p>
+                  </div>
                 </div>
 
                 {/* Currency Selector Toggle */}
