@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import nomadLogo from './assets/images/nomad_logo_1784351891612.jpg';
 import { UNCONVENTIONAL_LISTINGS } from './data';
 import { Listing, FilterState } from './types';
 import { ListingCard } from './components/ListingCard';
@@ -125,6 +126,10 @@ export default function App() {
                 <span className="hidden sm:inline">Alternative Directories</span>
               </button>
             </nav>
+            {/* Logo */}
+            <div className="h-10 w-24">
+              <img src={nomadLogo} alt="Nomad Logo" className="h-full w-full object-contain" />
+            </div>
           </div>
         </div>
       </header>
