@@ -3,9 +3,9 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 import {defineConfig} from 'vite';
 
-export default defineConfig({
-  base: '/nomad-app/',
-  // ... rest of your config
+export default defineConfig(() => {
+  return {
+    base: './',
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
