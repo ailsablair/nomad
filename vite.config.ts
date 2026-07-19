@@ -5,9 +5,9 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   base: '/nomad/',
-  root: './client', // Vite now looks inside 'client' for index.html
+  root: './client',
   build: {
-    outDir: '../dist', // Build output will still be in the root 'dist'
+    outDir: '../dist',
     emptyOutDir: true,
   },
   server: {
