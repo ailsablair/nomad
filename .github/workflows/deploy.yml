@@ -30,9 +30,9 @@ jobs:
       - name: Ensure remote directories exist
         uses: appleboy/ssh-action@v1.0.3
         with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.KEY }}
+          host: ${{ secrets.IONOS_HOST_IP }}
+          username: ${{ secrets.IONOS_SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           script: mkdir -p ~/subdomains/apps/nomad/
 
@@ -40,10 +40,10 @@ jobs:
       - name: Copy production build to IONOS via SSH (SCP)
         uses: appleboy/scp-action@v1.0.0
         with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.KEY }}
+          host: ${{ secrets.IONOS_HOST_IP }}
+          username: ${{ secrets.IONOS_SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
-          source: "dist/**" # Change to "build/**" or "out/**" if your framework uses a different output folder name
+          source: "dist/**"
           target: "~/subdomains/apps/nomad/"
           strip_components: 1 # Prevents creating an extra nested "dist" folder on the server
