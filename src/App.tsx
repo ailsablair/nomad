@@ -79,7 +79,7 @@ export default function App() {
       <header className="sticky top-0 z-40 border-b border-zinc-200 bg-white/80 backdrop-blur-md">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-20 items-center justify-between gap-4">
-            {/* Logo / Brand */}
+            {/* Logo / Brand - Moved to far left, and UR avatar removed */}
             <div className="flex items-center">
               <img src={nomadLogo} alt="Nomad Logo" className="h-16 w-auto object-contain" />
             </div>
