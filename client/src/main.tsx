@@ -12,7 +12,7 @@ createRoot(document.getElementById('root')!).render(
 
 export default function App() {
   return (
-    <SeraProvider defaultTheme="light" storageKey="nomad-theme">
+    <SeraProvider defaultTheme="system" storageKey="nomad-theme">
       <YourAppContent />
     </SeraProvider>
   );
