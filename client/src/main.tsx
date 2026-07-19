@@ -1,6 +1,6 @@
 import {StrictMode} from 'react';
 import {createRoot} from 'react-dom/client';
-import {RadixUI} from "seraui";
+import { SeraProvider } from "@/components/ui/sera-provider";
 import App from './App.tsx';
 import './index.css';
 
