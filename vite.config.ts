@@ -3,8 +3,10 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 
 export default defineConfig({
-  root: './client', // Tells Vite to look inside the client folder for index.html
-  base: '/nomad/', 
+  root: './client',
+  // Using an empty string forces Vite to use true relative paths (e.g., "assets/index.js")
+  // This allows the app to load correctly on ANY domain or subfolder automatically.
+  base: '', 
   plugins: [react()],
   resolve: {
     alias: {
@@ -12,7 +14,7 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: '../dist', // Steps out of the client folder to place the build at the repo root
+    outDir: '../dist',
     emptyOutDir: true,
   },
   server: {
