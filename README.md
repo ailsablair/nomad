@@ -4,7 +4,7 @@
 
 **Role:** Solutions Engineer & Product Designer
 
-**Live Application:** https://apps.ailsablair.ca/nomad-app
+**Live Application:** https://apps.ailsablair.ca/nomad
 
 **Repository:** https://github.com/ailsablair/nomad
 
@@ -165,7 +165,7 @@ Vite was generating asset paths relative to the root domain:
 instead of the application's deployment directory:
 
 ```
-/nomad-app/assets/
+/nomad/assets/
 ```
 
 ## Solution
@@ -173,7 +173,7 @@ instead of the application's deployment directory:
 Configured the Vite base path:
 
 ```ts
-base: "/nomad-app/"
+base: "/nomad/"
 ```
 
 Rebuilding and redeploying resolved every routing error.
@@ -188,7 +188,7 @@ apps.ailsablair.ca/assets/index.js
 ### After
 
 ```
-apps.ailsablair.ca/nomad-app/assets/index.js
+apps.ailsablair.ca/nomad/assets/index.js
                 ✅ 200
 ```
 
