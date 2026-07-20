@@ -4,7 +4,7 @@ import path from 'path';
 
 export default defineConfig({
   plugins: [react()],
-  base: '/nomad/',
+  base: process.env.VITE_DEPLOY_TARGET === 'gh-pages' ? '/nomad/' : './',
   root: './client',
   resolve: {
     alias: {
@@ -22,4 +22,4 @@ export default defineConfig({
   server: {
     port: 3000,
   }
-});
+})
