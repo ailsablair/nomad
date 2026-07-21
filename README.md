@@ -1,4 +1,4 @@
-# Designing a Fault-Tolerant, Multi-Source Aggregation Pipeline with CI/CD.
+# Architecting & Automating Cloud Infrastructure for the Nomad Platform
 
 > Building a secure deployment pipeline, modern cloud infrastructure, and automated CI/CD for an AI-powered rental platform.
 
@@ -165,7 +165,7 @@ Vite was generating asset paths relative to the root domain:
 instead of the application's deployment directory:
 
 ```
-/nomad/assets/
+/nomad-app/assets/
 ```
 
 ## Solution
@@ -173,7 +173,7 @@ instead of the application's deployment directory:
 Configured the Vite base path:
 
 ```ts
-base: "/nomad/"
+base: "/nomad-app/"
 ```
 
 Rebuilding and redeploying resolved every routing error.
@@ -188,7 +188,7 @@ apps.ailsablair.ca/assets/index.js
 ### After
 
 ```
-apps.ailsablair.ca/nomad/assets/index.js
+apps.ailsablair.ca/nomad-app/assets/index.js
                 ✅ 200
 ```
 
@@ -305,7 +305,7 @@ Once the server matched the repository exactly, deployments became deterministic
 
 ---
 
-# User Experience & Product Development
+# Product Design
 
 Alongside infrastructure engineering, I designed the user experience around the specific needs of digital nomads.
 
